@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {signInWithPopup} from 'firebase/auth';
  import { auth,provider } from '../fire';
+import Tchat from '../component/Tchat'
 
 function SignIn() {
     const [value,setValue]=useState("")
@@ -21,8 +22,9 @@ function SignIn() {
   return (
     <div>
         <h1>sign in page</h1>
-      <h1>{value}</h1>
-      <button onClick={signingoogle}>sign in with google</button> 
+       {value?<Tchat />:<button onClick={signingoogle}>sign in with google</button> }
+      
+      
       
     </div>
   )
