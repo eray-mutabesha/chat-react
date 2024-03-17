@@ -5,9 +5,7 @@ import Tchat from '../component/Tchat'
 
 function SignIn() {
     const [value,setValue]=useState("")
-
-
- const signingoogle=()=>{
+    const signingoogle=()=>{
   
  signInWithPopup(auth,provider).then((data)=>{
      setValue(data.user.email)

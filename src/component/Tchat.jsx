@@ -9,7 +9,11 @@ const logout=()=>{
 
   return (
     <div>
-      <h1>tchat</h1>
+      <form action="">
+        <input type="text" placeholder='write a message'/>
+        <button>send</button>
+      </form>
+      
       <button onClick={logout}>Logout</button>
     </div>
   )
