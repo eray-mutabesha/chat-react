@@ -16,14 +16,10 @@ function SignIn() {
  useEffect(()=>{
     setValue(localStorage.getItem("email"))
  })
-
   return (
     <div>
         <h1>sign in page</h1>
        {value?<Tchat />:<button onClick={signingoogle}>sign in with google</button> }
-      
-      
-      
     </div>
   )
 }
