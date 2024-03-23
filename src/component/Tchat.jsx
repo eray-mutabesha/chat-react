@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import { db } from '../fire'
-// import { orderBy, limit } from "firebase/firestore";  
-
+import { db } from '../firebase'
+import { collection } from '@firebase/firestore'
 
 function Tchat() {
 const [messages,setmessages]=useState([])
@@ -11,28 +10,25 @@ useEffect(()=>{
     setmessages(snapshot.docs.map(doc=>doc.data()))
    })
   },[])
- 
+
 // ---------------------Log out section--------------------
- const logout=()=>{
-  localStorage.clear()
-  window.location.reload()
- }
+  const logout=()=>{
+   localStorage.clear()
+   window.location.reload()
+  }
 
-  return (
-    <div>
-       
-     <button onClick={logout}>LOGOUT</button>
-      
-      {messages.map(({id,Text,photoURL})=>{
-        <div key={id}>
-           <img src={photoURL} alt=''/>
-           <p>{Text}</p>
-        </div>
-      }
-      )}
+return(
+  <>
+  <button onClick={logout}>LOGOUT</button>
+   {messages.map(({ id, text, photoURL }) => 
+  <nav key={id}>
+    <img src={photoURL} alt='photos' />
+    <p>{text}</p>
+  </nav>
+)}
+  </>
+)
 
-    </div>
-  )
 }
 
 export default Tchat
