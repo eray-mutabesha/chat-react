@@ -1,34 +1,42 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import { db } from '../firebase'
-import { collection } from '@firebase/firestore'
+import { db } from '../fire'
+
+
 
 function Tchat() {
-const [messages,setmessages]=useState([])
-useEffect(()=>{
-   db.collection('messages').orderBy('createdAt').limit(50).onSnapshot(snapshot=>{
-    setmessages(snapshot.docs.map(doc=>doc.data()))
-   })
-  },[])
+const [message,setmessage]=useState("")
+const [newvalue,setnewvalue]=useState([])
+const handleadd=(e)=>{
+ setmessage(e.target.value)
+}
 
-// ---------------------Log out section--------------------
-  const logout=()=>{
-   localStorage.clear()
-   window.location.reload()
+const handlesend=()=>{
+  if(message!==""){
+    db.ref().child("messages").push(message)
+    setmessage("")
   }
+}
+useEffect(()=>{
+  db.ref().child("messages").on("value",data=>{
+    const getdata=Object.values(data.val())
+    setnewvalue(getdata)
+  })
+})
+const logout=()=>{
+ localStorage.clear()
+ window.location.reload()
+}
 
-return(
-  <>
-  <button onClick={logout}>LOGOUT</button>
-   {messages.map(({ id, text, photoURL }) => 
-  <nav key={id}>
-    <img src={photoURL} alt='photos' />
-    <p>{text}</p>
-  </nav>
-)}
-  </>
-)
-
+  return (
+    <div>
+       <input type="text" placeholder='write a message' onChange={handleadd}/>
+       <button onClick={handlesend}>send</button>
+      <button onClick={logout}>LOGOUT</button>
+      {newvalue.map((valeur,i)=><p key={i}>{valeur}</p>)}
+    </div>
+  )
 }
 
 export default Tchat
+
