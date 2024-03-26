@@ -1,40 +1,48 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { db } from '../fire'
-
-
+import { db } from '../firebase'
+import { useState,useEffect } from 'react';
+import { collection, doc, getDocs } from "firebase/firestore"; 
+import Addmessages from './Addmessages';
 
 function Tchat() {
-const [message,setmessage]=useState("")
-const [newvalue,setnewvalue]=useState([])
-const handleadd=(e)=>{
- setmessage(e.target.value)
-}
 
-const handlesend=()=>{
-  if(message!==""){
-    db.ref().child("messages").push(message)
-    setmessage("")
-  }
-}
-useEffect(()=>{
-  db.ref().child("messages").on("value",data=>{
-    const getdata=Object.values(data.val())
-    setnewvalue(getdata)
-  })
-})
-const logout=()=>{
- localStorage.clear()
- window.location.reload()
-}
+ const [messages,setMessages]=useState([])
+ useEffect(()=>{
+  getmessages()
+ },[])
+
+
+  useEffect(()=>{
+    console.log(messages)
+ },[messages])
+
+
+ function getmessages(){
+
+  const collectionRef=collection(db,'messages')
+  getDocs(collectionRef).then(response=>{
+  const messagefromFirebase=response.docs.map(doc=>(
+    {
+      data:doc.data(),
+      id:doc.id,
+    }
+  ))
+  setMessages(messagefromFirebase)
+  }).catch(error=>console.log(error.message))
+ }
+
+
 
   return (
-    <div>
-       <input type="text" placeholder='write a message' onChange={handleadd}/>
-       <button onClick={handlesend}>send</button>
-      <button onClick={logout}>LOGOUT</button>
-      {newvalue.map((valeur,i)=><p key={i}>{valeur}</p>)}
-    </div>
+    <>
+    <h1>hello</h1>
+    <button onClick={()=>getmessages()}>Refresh</button>
+    <ul>{messages.map(mess=><li key={mess.id}>{mess.data.text}</li>)}</ul>
+    <Addmessages />
+    </>
+    
+     
+    
   )
 }
 
