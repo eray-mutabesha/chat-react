@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { collection,addDoc } from "firebase/firestore"; 
+import { db } from '../firebase';
 function Addmessages() {
    const [messageSent,setMessagesent]=useState("")
 // pushing data
@@ -10,7 +12,12 @@ const handlesend=(e)=>{
 const handlesubmit=(e)=>{
    e.preventDefault()
    if(messageSent !==""){
-      alert("its oky")
+      const messageSentInfirebase=collection(db,'messages');
+      addDoc(messageSentInfirebase,{text:messageSent}).then(response=>{
+        console.log(response)
+      }).catch(error=>{
+        console.log(error);
+      })
    }
   }
   return (

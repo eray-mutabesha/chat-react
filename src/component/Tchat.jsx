@@ -1,7 +1,7 @@
 import React from 'react'
 import { db } from '../firebase'
 import { useState,useEffect } from 'react';
-import { collection, doc, getDocs } from "firebase/firestore"; 
+import { collection, doc, getDocs,deleteDoc } from "firebase/firestore"; 
 import Addmessages from './Addmessages';
 
 function Tchat() {
@@ -31,13 +31,22 @@ function Tchat() {
   }).catch(error=>console.log(error.message))
  }
 
-
+const handledelete=(id)=>{
+  
+  const docRef=doc(db,"messages",id);
+  deleteDoc(docRef).then(response=>{
+    console.log(response)
+  }).catch(error=>{
+    console.log(error)
+  })
+}
 
   return (
     <>
     <h1>hello</h1>
     <button onClick={()=>getmessages()}>Refresh</button>
-    <ul>{messages.map(mess=><li key={mess.id}>{mess.data.text}</li>)}</ul>
+    <ul>{messages.map(mess=><li key={mess.id}>{mess.data.text} 
+    <button onClick={()=>handledelete(mess.id)}>delete</button></li>)}</ul>
     <Addmessages />
     </>
     
