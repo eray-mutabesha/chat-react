@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {collection, onSnapshot} from "firebase/firestore";
+import {collection, onSnapshot ,query ,orderBy} from "firebase/firestore";
 import { db } from '../firebase';
  
 
@@ -11,8 +11,8 @@ function RealTime() {
 
   const [message,setMessage]=useState([]);
   useEffect(()=>{
-   
-    const unsubscrub = onSnapshot(mesRef,snapshot=>{
+    const q=query(mesRef,orderBy("time","asc"))
+    const unsubscrub = onSnapshot(q,snapshot=>{
       setMessage(snapshot.docs.map(doc=>({id:doc.id,data:doc.data()})))
     })
 return ()=>{

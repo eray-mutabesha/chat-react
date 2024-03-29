@@ -4,18 +4,17 @@ import { collection,addDoc,serverTimestamp} from "firebase/firestore";
 import { db } from '../firebase';
 
 function Addmessages() {
-   const [messageSent,setMessagesent]=useState("")
+   const [messageSent,setMessagesent]=useState("");
 // pushing data
 const handlesend=(e)=>{
-    setMessagesent(e.target.value)
-    
+    setMessagesent(e.target.value);
 }
 const handlesubmit=(e)=>{
    e.preventDefault()
    if(messageSent !==""){
       const timestemp=serverTimestamp();
       const messageSentInfirebase=collection(db,'messages');
-      addDoc(messageSentInfirebase,{text:messageSent}).then(response=>{
+      addDoc(messageSentInfirebase,{text:messageSent,time:timestemp}).then(response=>{
         console.log(response)
       }).catch(error=>{
         console.log(error);
