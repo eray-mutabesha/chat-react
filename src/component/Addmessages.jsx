@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { collection,addDoc,serverTimestamp} from "firebase/firestore"; 
 import { db } from '../firebase';
+import {auth} from '../fire';
+
 
 function Addmessages() {
    const [messageSent,setMessagesent]=useState("");
@@ -12,9 +14,10 @@ const handlesend=(e)=>{
 const handlesubmit=(e)=>{
    e.preventDefault()
    if(messageSent !==""){
+     const {photoURL}=auth.currentUser;
       const timestemp=serverTimestamp();
       const messageSentInfirebase=collection(db,'messages');
-      addDoc(messageSentInfirebase,{text:messageSent,time:timestemp}).then(response=>{
+      addDoc(messageSentInfirebase,{text:messageSent,user:photoURL,time:timestemp}).then(response=>{
         console.log(response)
       }).catch(error=>{
         console.log(error);
