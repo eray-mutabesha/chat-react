@@ -3,6 +3,7 @@ import { db } from '../firebase'
 import { useState,useEffect } from 'react';
 import { collection, doc, getDocs,deleteDoc } from "firebase/firestore"; 
 import Addmessages from './Addmessages';
+import RealTime from './RealTime';
 
 function Tchat() {
 
@@ -48,6 +49,7 @@ const handledelete=(id)=>{
     <ul>{messages.map(mess=><li key={mess.id}>{mess.data.text} 
     <button onClick={()=>handledelete(mess.id)}>delete</button></li>)}</ul>
     <Addmessages />
+    <RealTime />
     </>
     
      
