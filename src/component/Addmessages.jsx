@@ -2,12 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { collection,addDoc,serverTimestamp} from "firebase/firestore"; 
 import { db } from '../firebase';
-import {auth} from '../fire';
-
+import { auth } from '../firebase';
 
 function Addmessages() {
    const [messageSent,setMessagesent]=useState("");
-// pushing data
+// pushing data in to fire base
 const handlesend=(e)=>{
     setMessagesent(e.target.value);
 }
