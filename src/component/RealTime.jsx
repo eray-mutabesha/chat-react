@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {collection, onSnapshot ,query ,orderBy} from "firebase/firestore";
 import { db } from '../firebase';
  
-
-
 function RealTime() {
 
   const mesRef=collection(db,"messages")
-  
 
   const [message,setMessage]=useState([]);
   useEffect(()=>{
@@ -21,7 +18,7 @@ return ()=>{
 
   return (
     <div>
-      <h1>real time data base</h1>
+      <h1>the real time data base</h1>
       <ul>
         {message.map(mess=>(
           <li key={mess.id}>
