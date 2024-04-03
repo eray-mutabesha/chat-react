@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {signInWithPopup} from 'firebase/auth';
- import { auth,provider } from '../fire';
-import Tchat from '../component/Tchat'
+import { auth,provider } from '../fire';
+import Tchat from '../component/Tchat';
+import '../component/css.files/Signin.css'
 
 function SignIn() {
     const [value,setValue]=useState("")
@@ -18,8 +19,17 @@ function SignIn() {
  })
   return (   
     <div>
-        <h1>sign in page</h1>
-       {value?<Tchat />:<button onClick={signingoogle}>sign in with google</button> }
+      <header>
+      {value?<Tchat />:<button onClick={signingoogle}>sign in with google</button> }
+      </header>
+      <div>
+        <div className='asbody'>
+          
+          <h1>Lorem, ipsum dolor sit amet consectetur adipisicing eli ipsum dolor sit ame</h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, veritatis natus. Excepturi quas maiores consectetur! Iste, nobis recusandae culpa aperiam nihil, laboriosam molestias facere nostrum debitis, repudiandae perspiciatis delectus veritatis.</p>
+        </div>
+        <div></div>
+      </div>   
     </div>
   )
 }

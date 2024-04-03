@@ -1,0 +1,12 @@
+header{
+    background-color: black;
+    height: 50px;
+    width: 100%;
+}
+.asbody{
+ background-image:url("public\images\4852947359bb956583dad0a599fe5a49.jpg");
+ background-size: contain;
+ width: 100%;
+ height: 90vh;
+border: 1px solid red;
+}

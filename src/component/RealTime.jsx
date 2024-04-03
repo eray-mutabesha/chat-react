@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {collection, onSnapshot ,query ,orderBy,deleteDoc,doc} from "firebase/firestore";
 import { auth, db } from '../firebase';
-import '../component/all.css';
+import '../component/css.files/RealTime.css';
 
 function RealTime() {
-
+// get datas from firebase.......................
   const mesRef=collection(db,"messages");
   const [message,setMessage]=useState([]);
   useEffect(()=>{
@@ -15,14 +15,15 @@ function RealTime() {
 return ()=>{
   unsubscrub();
 }},[])
-
+// .............................................
+// log out......................................
 const logout=()=>{
   localStorage.clear();
   window.location.reload();
 }
-// delete
+// ...............................................
+// delete message ...................
 const handledelete=(id)=>{
-  
   const docRef=doc(db,"messages",id);
   deleteDoc(docRef).then(response=>{
     console.log(response)
@@ -30,6 +31,7 @@ const handledelete=(id)=>{
     console.log(error)
   })
 }
+// .........................................
   return (
     <div>
       <h1>the real time data base</h1>
