@@ -3,7 +3,12 @@ header{
     height: 50px;
     width: 100%;
 }
-.asbody{
- background-image:url("public\images\4852947359bb956583dad0a599fe5a49.jpg");
+.as_body{
+
+ background-image: url("img1.wallspic.com-art-technology-atmosphere-pattern-digital_art-6080x3420.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 90vh;
+ color: rgb(233, 233, 233);
  
 }

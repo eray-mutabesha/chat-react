@@ -41,8 +41,7 @@ const handledelete=(id)=>{
          <div>
 
            <div key={mess.id}  className={` messageSent ${mess.data.userID==auth.currentUser ? "sent" : "receve"}`}>
-            
-            <img src={mess.data.user}/>
+            <img src={mess.data.user} alt="img" />
             {mess.data.text}
             <button onClick={()=>handledelete(mess.id)}>delete</button>
             </div>
