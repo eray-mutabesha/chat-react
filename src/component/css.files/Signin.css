@@ -5,11 +5,14 @@ body{
 header{
     background-color:rgba(34, 33, 33, 0.822);
     z-index: 1;
-    height: 50px;
+    height: 55px;
     width: 100%;
     display: flex;
     justify-content: space-around;
    
+}
+header div{
+    display: flex;
 }
 .body{
  z-index: 0;
@@ -51,6 +54,25 @@ header{
 .flex_div div img{
     width: 400px;
     margin-top:-85px;
-    
-    
+}
+button{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    border: 2px solid rgba(38, 233, 233, 0.842);
+    margin: 5px;
+}
+select{
+    background-color:rgba(34, 33, 33, 0.822);
+    height: fit-content;
+    border: none;
+    color: white;
+    outline: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+header h1{
+    margin-top: auto;
+    margin-bottom: auto;
 }
