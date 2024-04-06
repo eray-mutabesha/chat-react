@@ -19,12 +19,13 @@ function SignIn() {
  })
   return (   
     <div>
-      <header>
       
-      </header>
-      {value?<Tchat /> : <div>
+      {value?<Tchat /> : <div className="body">
         <div className='as_body'>
-          <button onClick={signingoogle}>sign in with google</button> 
+        <header>
+        <button onClick={signingoogle}>sign in with google</button> 
+        </header>
+          
           <h1>Lorem, ipsum dolor sit amet consectetur adipisicing eli ipsum dolor sit ame</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, veritatis natus. Excepturi quas maiores consectetur! Iste, nobis recusandae culpa aperiam nihil, laboriosam molestias facere nostrum debitis, repudiandae perspiciatis delectus veritatis.</p>
         </div>

@@ -1,14 +1,26 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
 header{
-    background-color: rgba(0, 0, 0, 0.822);
+    background-color:black;
+    z-index: 1;
     height: 50px;
     width: 100%;
+    box-shadow: rgb(180, 179, 179) 0px 0px 5px 0px ;
+   
+}
+.body{
 }
 .as_body{
-
- background-image: url("img1.wallspic.com-art-technology-atmosphere-pattern-digital_art-6080x3420.jpg");
+ z-index: 0;
+ background-image: url("img1.wallspic.com-art-technology-atmosphere-pattern-digital_art-6080x3420.jpg"); 
  background-repeat: no-repeat;
  background-size: cover;
- height: 90vh;
- color: rgb(233, 233, 233);
+ height: 100vh;
+ color: rgb(233, 233, 233); 
+ 
+}
+button{
  
 }
