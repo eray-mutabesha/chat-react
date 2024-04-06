@@ -23,13 +23,17 @@ function SignIn() {
       {value?<Tchat /> : <div className="body">
         <div className='as_body'>
         <header>
-        <h1>MASOLO</h1>
-         <select>
+          <div><h1>MasoloApp</h1></div>
+          <div>
+          <select>
           <option value="langue">Language</option>
           <option value="">Englais</option>
           <option value="">Francais</option>
          </select>
         <button onClick={signingoogle}>sign in with google</button> 
+        <button>Sign Up</button>
+          </div>
+
         </header>
           <div className='flex_div'>
           <div>
