@@ -7,6 +7,7 @@ function RealTime() {
 // get datas from firebase.......................
   const mesRef=collection(db,"messages");
   const [message,setMessage]=useState([]);
+  
   useEffect(()=>{
     const q=query(mesRef,orderBy("time","asc"));
     const unsubscrub = onSnapshot(q,snapshot=>{
@@ -31,6 +32,7 @@ const handledelete=(id)=>{
     console.log(error)
   })
 }
+const {uid}=auth.currentUser;
 // .........................................
   return (
     <div>
@@ -40,7 +42,7 @@ const handledelete=(id)=>{
         {message.map(mess=>(
          <div>
 
-          <div key={mess.id} className={` messageSent ${mess.data.userID===auth.currentUser ? "sent" : "receve"}`}>
+          <div key={mess.id} className={`${mess.data.userID== uid? "sent" : "receve"}`}>
             <img src={mess.data.user} alt="img" />
             {mess.data.text}
             <button onClick={()=>handledelete(mess.id)}>delete</button>

@@ -18,9 +18,11 @@ const handlesubmit=(e)=>{
       const messageSentInfirebase=collection(db,'messages');
       addDoc(messageSentInfirebase,{text:messageSent,user:photoURL,userID:uid,time:timestemp}).then(response=>{
         console.log(response)
+        
       }).catch(error=>{
         console.log(error);
       })
+      messageSent !=="";
    }
   }
 
