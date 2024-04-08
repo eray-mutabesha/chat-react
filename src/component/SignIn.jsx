@@ -38,12 +38,12 @@ function SignIn() {
 
         </header>
           <div className='flex_div'>
-          <div>
+          <div className='flex_div_one'>
               <h1>Masolo: Connecting Hearts, One Message at a Time😎</h1>
               <p>Explore new friendships and enriching conversations on Masolo - where every message builds unique connections.Be part of a vibrant community where your thoughts matter, feelings are shared, and relationships flourish. Stay connected on <strong>MasoloApp</strong></p>
-              <button onClick={signingoogle} className='google_btn'>sign in with google</button> 
+              <nav><button onClick={signingoogle} className='google_btn'>sign in with google</button> </nav>
           </div>
-          <div>
+          <div className='flex_div_two'>
           <img src="—Pngtree—cute blue watercolour message box_6978971.png" alt="" />
           </div>
           </div>
