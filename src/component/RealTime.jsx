@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import {collection, onSnapshot ,query ,orderBy,deleteDoc,doc} from "firebase/firestore";
 import { auth, db } from '../firebase';
 import '../component/css.files/RealTime.css';
+
 
 function RealTime() {
 // get datas from firebase.......................
   const mesRef=collection(db,"messages");
   const [message,setMessage]=useState([]);
-  
+
+
   useEffect(()=>{
     const q=query(mesRef,orderBy("time","asc"));
     const unsubscrub = onSnapshot(q,snapshot=>{
@@ -32,7 +34,8 @@ const handledelete=(id)=>{
     console.log(error)
   })
 }
-const {uid}=auth.currentUser;
+let {uid}=auth.currentUser;
+
 // .........................................
   return (
     <div>
@@ -42,12 +45,12 @@ const {uid}=auth.currentUser;
         {message.map(mess=>(
          <div>
 
-          <div key={mess.id} className={`${mess.data.userID== uid? "sent" : "receve"}`}>
-            <img src={mess.data.user} alt="img" />
+          <div key={mess.id} className={`${mess.data.userID == uid?"sent" : "receve"}`}>
+            <img src={mess.data.user} alt="img"/>
             {mess.data.text}
+            
             <button onClick={()=>handledelete(mess.id)}>delete</button>
             </div>
-
           </div>
             
         ))}

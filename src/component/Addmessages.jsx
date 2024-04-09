@@ -13,16 +13,17 @@ const handlesend=(e)=>{
 const handlesubmit=(e)=>{
    e.preventDefault()
    if(messageSent !==""){
-     const {uid,photoURL}=auth.currentUser;
+    
+     let {uid,photoURL}=auth.currentUser;
+    
       const timestemp=serverTimestamp();
       const messageSentInfirebase=collection(db,'messages');
       addDoc(messageSentInfirebase,{text:messageSent,user:photoURL,userID:uid,time:timestemp}).then(response=>{
         console.log(response)
-        
       }).catch(error=>{
         console.log(error);
       })
-      messageSent !=="";
+      setMessagesent("")
    }
   }
 
