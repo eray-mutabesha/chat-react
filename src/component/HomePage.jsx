@@ -1,19 +1,14 @@
-
-import '../component/css.files/Signin.css'
+import '../component/css.files/HomePage.css';
 import { useNavigate } from "react-router-dom"; 
 
 
-
 function SignIn() {
-    
  const navigate = useNavigate(); 
  const toSigninPage=()=>{
-  
   navigate('/signinPages');
  }
   return (   
     <>
-      
    <div className="body">
         <div className='as_body'>
         <header>
