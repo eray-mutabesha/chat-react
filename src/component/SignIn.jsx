@@ -22,7 +22,7 @@ function SignIn() {
  })
  const navigate = useNavigate(); 
  const toSigninPage=()=>{
-  alert("hello")
+  
   navigate('/signinPages');
  }
   return (   
