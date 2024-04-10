@@ -34,7 +34,7 @@ const handledelete=(id)=>{
     console.log(error)
   })
 }
-let {uid}=auth.currentUser;
+// let {uid}=auth.currentUser;
 
 // .........................................
   return (
@@ -45,7 +45,7 @@ let {uid}=auth.currentUser;
         {message.map(mess=>(
          <div>
 
-          <div key={mess.id} className={`${mess.data.userID == uid?"sent" : "receve"}`}>
+          <div key={mess.id} className={`${mess.data.userID?"sent" : "receve"}`}>
             <img src={mess.data.user} alt="img"/>
             {mess.data.text}
             

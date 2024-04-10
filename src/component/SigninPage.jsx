@@ -1,9 +1,12 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react'
-import { auth } from '../fire';
-import { db } from '../firebase';
+import { useNavigate } from "react-router-dom"; 
+import React, { useEffect, useState } from 'react';
+import {signInWithPopup} from 'firebase/auth';
+import { auth,provider } from '../fire';
+import Tchat from './Tchat';
 
 function SigninPage() {
+  const navigate=useNavigate();
   const [emaile,setEmail]=useState("");
   const [passworde,setPassword]=useState("");
   const handlechangeMail=(e)=>{
@@ -15,31 +18,52 @@ function SigninPage() {
   }
 const handlesubmit=(e)=>{
  e.preventDefault();
-const email=emaile
+const email=emaile;
 const password=passworde;
 createUserWithEmailAndPassword(auth,email,password).then(data=>{
+  navigate('/tchat');
   console.log(data,"authData");
+
 })
 }
-
-  return (
-    <div>
-      <h1>creat an acount</h1>
-      <form action="" onSubmit={handlesubmit}>
-      <input type="email" 
-      placeholder='Enter your email adress' 
-      onChange={handlechangeMail}
-      />
-
-      <input type="password"
-       placeholder='Create pass word'
-      onChange={handlechangePassword}
-       />
-      <button type='submit'>Signin</button>
-      </form>
+// ............................google................................
+// ..................................................................
+const [value,setValue]=useState("")
+    const signingoogle=()=>{
   
-      
-    </div>
+ signInWithPopup(auth,provider).then((data)=>{
+     setValue(data.user.email)
+    localStorage.setItem("email",data.user.email)
+  })
+ }
+
+ useEffect(()=>{
+    setValue(localStorage.getItem("email"))
+ })
+// ..................................................................
+// ..................................................................
+  return (
+    <>
+    {value?<Tchat />: <div>
+    <h1>login with your mail</h1>
+    <form action="" onSubmit={handlesubmit}>
+    <input type="email" 
+    placeholder='Enter your email adress' 
+    onChange={handlechangeMail}
+    />
+
+    <input type="password"
+     placeholder='Create pass word'
+    onChange={handlechangePassword}
+     />
+    <button type='submit'>Signin</button>
+    </form>
+  {/* -----------------------------google------------------------------ */}
+
+  <button className='google_btn' onClick={signingoogle}>sign in to your acount</button> 
+    
+  </div>}
+   </>
   )
 }
 

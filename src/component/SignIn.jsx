@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import {signInWithPopup} from 'firebase/auth';
-import { auth,provider } from '../fire';
-import Tchat from '../component/Tchat';
+
 import '../component/css.files/Signin.css'
 import { useNavigate } from "react-router-dom"; 
 
 
 
 function SignIn() {
-    const [value,setValue]=useState("")
-    const signingoogle=()=>{
-  
- signInWithPopup(auth,provider).then((data)=>{
-     setValue(data.user.email)
-    localStorage.setItem("email",data.user.email)
-  })
- }
-
- useEffect(()=>{
-    setValue(localStorage.getItem("email"))
- })
+    
  const navigate = useNavigate(); 
  const toSigninPage=()=>{
   
@@ -28,7 +14,7 @@ function SignIn() {
   return (   
     <>
       
-      {value?<Tchat /> : <div className="body">
+   <div className="body">
         <div className='as_body'>
         <header>
           <div>
@@ -40,7 +26,7 @@ function SignIn() {
           </div>
           <div>
           
-        <button onClick={signingoogle}>sign in with google</button> 
+        <button>sign in with google</button> 
         <button>Signin with Email</button>
           </div>
 
@@ -58,7 +44,7 @@ function SignIn() {
          
          </div>
         
-      </div>   }
+      </div>   
       </>
     
   )
