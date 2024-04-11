@@ -44,14 +44,14 @@ const [value,setValue]=useState("")
 // ..................................................................
   return (
     <>
-    {value?<Tchat />: <div>
+    {
+    value?<Tchat />: <div>
     <h1>login with your mail</h1>
     <form action="" onSubmit={handlesubmit}>
     <input type="email" 
     placeholder='Enter your email adress' 
     onChange={handlechangeMail}
     />
-
     <input type="password"
      placeholder='Create pass word'
     onChange={handlechangePassword}
@@ -60,9 +60,9 @@ const [value,setValue]=useState("")
     </form>
   {/* -----------------------------google------------------------------ */}
 
-  <button className='google_btn' onClick={signingoogle}>sign in to your acount</button> 
-    
-  </div>}
+  <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onClick={signingoogle}>signin with google</button> 
+  </div>
+  }
    </>
   )
 }
