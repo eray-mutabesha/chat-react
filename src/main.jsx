@@ -7,6 +7,7 @@ import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import SigninPage from './component/SigninPage'
 import Tchat from './component/Tchat';
 import RealTime from './component/RealTime';
+import SignupPage from './component/SignupPage';
 
 
 const routes=createBrowserRouter([
@@ -25,6 +26,10 @@ const routes=createBrowserRouter([
   {
     path:"realtime",
     element:<RealTime />
+  },
+  {
+    path:"signup",
+    element:<SignupPage />
   }
 ])
 

@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 import {signInWithPopup} from 'firebase/auth';
 import { auth,provider } from '../fire';
 import Tchat from './Tchat';
+import { Link } from 'react-router-dom';
+
+
 
 function SigninPage() {
   const navigate=useNavigate();
@@ -60,7 +63,9 @@ const [value,setValue]=useState("")
     </form>
   {/* -----------------------------google------------------------------ */}
 
-  <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onClick={signingoogle}>signin with google</button> 
+  <button onClick={signingoogle}>signin with google</button> 
+  <Link to={'/signup'}>Don't have an acount ? Sign up</Link><br></br>
+  <Link to={'/'}>Back to hoem page</Link>
   </div>
   }
    </>
