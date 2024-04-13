@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useNavigate } from "react-router-dom"; 
 import { signInWithEmailAndPassword} from 'firebase/auth';
-import { auth } from '../fire';
 import { Link } from 'react-router-dom';
+import {signInWithPopup} from 'firebase/auth';
+import { auth,provider } from '../fire';
+import Tchat from './Tchat';
+
 function Login() {
  
 
@@ -33,9 +36,24 @@ function Login() {
           }
       
        }
+// ............................google................................
+// ..................................................................
+const [value,setValue]=useState("")
+    const signingoogle=()=>{
+  
+ signInWithPopup(auth,provider).then((data)=>{
+     setValue(data.user.email)
+    localStorage.setItem("email",data.user.email)
+  })
+ }
 
+ useEffect(()=>{
+    setValue(localStorage.getItem("email"))
+ })
 
   return (
+    <>
+    {value?<Tchat/>:
     <div>
       <h1>login page</h1>
     <form action="" onSubmit={handlesubmit}>
@@ -47,12 +65,13 @@ function Login() {
      placeholder='Create pass word'
     onChange={handlechangePassword}
      />
-    <button type='submit'>Login into your acount</button>
-     
+    <button type='submit'>Login</button>
+    <button onClick={signingoogle}>Login with google</button> 
     </form>
-    <Link to={'/signup'}>Don't have an acount ? Sign up</Link><br></br>
+    <Link to={'/signup'}>Don't have an acount? Sign up</Link><br></br>
   <Link to={'/'}>Back to hoem page</Link>
-    </div>
+    </div>}
+    </>
   )
 }
 

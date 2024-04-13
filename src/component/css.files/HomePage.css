@@ -3,13 +3,14 @@ body{
     padding: 0%;
 }
 header{
-    background-color:rgba(36, 36, 36, 0.788);
+    background-color:rgba(19, 19, 19, 0.808);
     z-index: 1;
     height: 55px;
     width: 100%;
     display: flex;
     justify-content:space-around;
     gap: 40%;
+    
     
    
 }
@@ -18,7 +19,7 @@ header div{
 }
 .body{
  z-index: 0;
- background-image: url("img1.wallspic.com-art-technology-atmosphere-pattern-digital_art-6080x3420.jpg"); 
+ background-image: url("moderate-aquamarine-dark-gradient-background_608506-1382.avif"); 
  background-repeat: no-repeat;
  background-size: cover;
  height: 100vh;
@@ -27,9 +28,9 @@ header div{
 }
 .body .as_body{
     box-shadow: rgba(240, 239, 239, 0.185) 0px 0px 5px 0px ;  
-    background-color: rgba(0, 0, 0, 0.87);
+    background-color: rgba(0, 0, 0, 0.719);
     position: relative;
-    width: 90%;
+    width: 80%;
     height: 80%;
     top:10%;
     margin-left: auto;
@@ -61,12 +62,13 @@ header div{
 }
 .flex_div div nav{
 
- width: 80%;
+ width: 85%;
  margin-left: auto;
  margin-right: auto;
+ display: flex;
 }
 .google_btn{
-    margin: 0%;
+    
     width: 50%;
     
 }

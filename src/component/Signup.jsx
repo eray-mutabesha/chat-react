@@ -1,12 +1,8 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from "react-router-dom"; 
-import React, { useEffect, useState } from 'react';
-import {signInWithPopup} from 'firebase/auth';
-import { auth,provider } from '../fire';
-import Tchat from './Tchat';
+import React, { useState } from 'react';
+import { auth} from '../fire';
 import { Link } from 'react-router-dom';
-
-
 
 function SigninPage() {
   const navigate=useNavigate();
@@ -36,26 +32,13 @@ catch{
 }
 
 }
-// ............................google................................
-// ..................................................................
-const [value,setValue]=useState("")
-    const signingoogle=()=>{
-  
- signInWithPopup(auth,provider).then((data)=>{
-     setValue(data.user.email)
-    localStorage.setItem("email",data.user.email)
-  })
- }
 
- useEffect(()=>{
-    setValue(localStorage.getItem("email"))
- })
 // ..................................................................
 // ..................................................................
   return (
     <>
-    {
-    value?<Tchat />: <div>
+    
+     <div>
     <h1>create an acount with your mail</h1>
     <form action="" onSubmit={handlesubmit}>
     <input type="email" 
@@ -68,12 +51,11 @@ const [value,setValue]=useState("")
      />
     <button type='submit'>Signin</button>
     </form>
-  {/* -----------------------------google------------------------------ */}
 
-  <button onClick={signingoogle}>signin with google</button> 
-  
+  <Link to={'/login'}> Already have an account? Login</Link><br></br>
+  <Link to={'/'}>Back to hoem page</Link>
   </div>
-  }
+  
    </>
   )
 }
