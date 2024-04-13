@@ -1,6 +1,6 @@
 body{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
 }
 header{
     background-color:rgba(19, 19, 19, 0.808);
@@ -11,8 +11,6 @@ header{
     justify-content:space-around;
     gap: 40%;
     
-    
-   
 }
 header div{
     display: flex;

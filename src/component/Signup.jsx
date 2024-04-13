@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import { auth} from '../fire';
 import { Link } from 'react-router-dom';
+import '../component/css.files/LoginPage.css';
 
 function SigninPage() {
   const navigate=useNavigate();
@@ -36,11 +37,18 @@ catch{
 // ..................................................................
 // ..................................................................
   return (
-    <>
     
-     <div>
-    <h1>create an acount with your mail</h1>
+     <div className='login_all_div'>
+      <div  className='black_div'>
+        <div className='flex'>
+        <div className='text_div'>
+          <h1>Create an acount</h1>
+          <p>Lorem ipsum, dolor sit amet incidunt placeat totam nesciunt ducimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum iure, veniam, earum accusantium optio est dolorum delectus quas veritatis, recusandae asperiores! Ex quos ullam obcaecati vel magni eligendi dicta architecto.</p>
+        </div>
+        <div className='login_div'>
+       
     <form action="" onSubmit={handlesubmit}>
+    <h1>Sign up</h1>
     <input type="email" 
     placeholder='Enter your email adress' 
     onChange={handlechangeMail}
@@ -49,14 +57,24 @@ catch{
      placeholder='Create pass word'
     onChange={handlechangePassword}
      />
-    <button type='submit'>Signin</button>
+     <nav>
+     <button type='submit'>Valide</button>
+     </nav>
+    
     </form>
-
-  <Link to={'/login'}> Already have an account? Login</Link><br></br>
-  <Link to={'/'}>Back to hoem page</Link>
+        <div className='links'>
+        <Link to={'/login'}><p>Already have an account? Login</p></Link><br></br>
+        <Link to={'/'}><p>Back to hoem page</p></Link>
+        </div>
+        </div>
+       
+        </div>
+     
+      </div>
+  
   </div>
   
-   </>
+  
   )
 }
 
