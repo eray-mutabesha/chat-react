@@ -19,15 +19,22 @@ function SigninPage() {
   const handlechangePassword=(e)=>{
   setPassword(e.target.value);
   }
-const handlesubmit=(e)=>{
+const handlesubmit= async (e)=>{
  e.preventDefault();
 const email=emaile;
 const password=passworde;
-createUserWithEmailAndPassword(auth,email,password).then(data=>{
+
+try{
+await createUserWithEmailAndPassword(auth,email,password).then(data=>{
   navigate('/tchat');
   console.log(data,"authData");
 
 })
+}
+catch{
+  alert("The emailAdress is already used !!")
+}
+
 }
 // ............................google................................
 // ..................................................................
@@ -49,7 +56,7 @@ const [value,setValue]=useState("")
     <>
     {
     value?<Tchat />: <div>
-    <h1>login with your mail</h1>
+    <h1>create an acount with your mail</h1>
     <form action="" onSubmit={handlesubmit}>
     <input type="email" 
     placeholder='Enter your email adress' 
@@ -64,8 +71,7 @@ const [value,setValue]=useState("")
   {/* -----------------------------google------------------------------ */}
 
   <button onClick={signingoogle}>signin with google</button> 
-  <Link to={'/signup'}>Don't have an acount ? Sign up</Link><br></br>
-  <Link to={'/'}>Back to hoem page</Link>
+  
   </div>
   }
    </>

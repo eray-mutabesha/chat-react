@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function SignIn() {
  const navigate = useNavigate(); 
  const toSigninPage=()=>{
-  navigate('/signinPages');
+  navigate('/login');
  }
   return (   
     <>
