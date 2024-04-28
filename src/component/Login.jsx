@@ -6,7 +6,7 @@ import {signInWithPopup} from 'firebase/auth';
 import { auth,provider } from '../fire';
 import Tchat from './Tchat';
 import '../component/css.files/LoginPage.css';
-
+import { useForm} from "react-hook-form"
 
 
 function Login() {
@@ -14,15 +14,26 @@ function Login() {
    const [email,setEmail]=useState("");
    const [password,setPassword]=useState("");
 
-   
+   const { register,formState: { errors }} = useForm();
+
+
      const handlechangeMail=(e)=>{
       setEmail(e.target.value);
      }
      const handlechangePassword=(e)=>{
       setPassword(e.target.value);
      }
-
-    const handlesubmit = async (e)=>{
+     const onSubmit=(data)=>{
+    
+      if(data.emaile.length ==""){
+      toast.error("Completez le nom SVP!!")
+     }
+      else if(data.passworduser.length ==""){
+     toast.error("veiller saisir le mot de pass")
+    }
+   
+   }  
+    const handleSubmit= async (e)=>{
         e.preventDefault();
      
         try{
@@ -33,7 +44,7 @@ function Login() {
           })
           }
           catch{
-            alert("Incorrect email or password")
+            // alert("Incorrect email or password")
           }
       
        }
@@ -62,16 +73,28 @@ const [value,setValue]=useState("")
           <p>Lorem ipsum, dolor sit amet incidunt placeat totam nesciunt ducimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum iure, veniam, earum accusantium optio est dolorum delectus quas veritatis, recusandae asperiores! Ex quos ullam obcaecati vel magni eligendi dicta architecto.</p>
         </div>
         <div className='login_div'>
-        <form action="" onSubmit={handlesubmit}>
+
+
+        <form action="" onSubmit={handleSubmit(onSubmit)}>
         <h1>login page</h1>
         <input type="email" 
         placeholder='Enter your email adress' 
         onChange={handlechangeMail}
-        />
-        <input type="password"
-         placeholder='Create pass word'
+        {...register("emaile", { required: true ,message:"you must complet the mail before"})}  />
+
+        
+        {errors.emaile && (
+        <span style={{ color: 'red' }}>{errors.emaile.message}</span>
+      )}
+
+        <input type="password" 
          onChange={handlechangePassword}
-        />
+        placeholder="Enter your password"  
+        {...register("passworduser",{
+        minLength:{value:6,message:"Incorrect pass word"}})}/>
+      {errors.passworduser && (
+        <span style={{ color: 'red' }}>{errors.passworduser.message}</span>
+      )}
         <nav>
         <button type='submit'>Login</button>
         <button onClick={signingoogle}>Login with google</button> 
