@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import HomePage from './component/HomePage';
-
+import { Toaster } from 'react-hot-toast'
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import Signup from './component/Signup';
 import Tchat from './component/Tchat';
@@ -36,6 +36,7 @@ const routes=createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Toaster />
     <RouterProvider router={routes}></RouterProvider>
   </React.StrictMode>,
 )

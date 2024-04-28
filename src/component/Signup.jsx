@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { auth} from '../fire';
 import { Link } from 'react-router-dom';
 import '../component/css.files/LoginPage.css';
+import toast from 'react-hot-toast';
+
 
 function SigninPage() {
   const navigate=useNavigate();
@@ -25,11 +27,11 @@ try{
 await createUserWithEmailAndPassword(auth,email,password).then(data=>{
   navigate('/tchat');
   console.log(data,"authData");
-
+toast.success("Account successful created")
 })
 }
 catch{
-  alert("The emailAdress is already used !!")
+  toast.error("The emailAdress is already used !!")
 }
 
 }

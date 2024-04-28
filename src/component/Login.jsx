@@ -6,45 +6,34 @@ import {signInWithPopup} from 'firebase/auth';
 import { auth,provider } from '../fire';
 import Tchat from './Tchat';
 import '../component/css.files/LoginPage.css';
-import { useForm} from "react-hook-form"
+import toast from 'react-hot-toast';
 
 
 function Login() {
   const navigate=useNavigate();
    const [email,setEmail]=useState("");
    const [password,setPassword]=useState("");
-
-   const { register,formState: { errors }} = useForm();
-
-
      const handlechangeMail=(e)=>{
       setEmail(e.target.value);
      }
      const handlechangePassword=(e)=>{
       setPassword(e.target.value);
      }
-     const onSubmit=(data)=>{
-    
-      if(data.emaile.length ==""){
-      toast.error("Completez le nom SVP!!")
-     }
-      else if(data.passworduser.length ==""){
-     toast.error("veiller saisir le mot de pass")
-    }
-   
-   }  
+  
     const handleSubmit= async (e)=>{
         e.preventDefault();
      
         try{
           await signInWithEmailAndPassword(auth,email,password).then(data=>{
+            toast.success("successful connexion")
             navigate('/tchat');
             console.log(data,"authData");
           
           })
           }
           catch{
-            // alert("Incorrect email or password")
+            toast.error("Incorrect email or password")
+            // toast.error("veiller saisir le mot de pass")
           }
       
        }
@@ -75,26 +64,17 @@ const [value,setValue]=useState("")
         <div className='login_div'>
 
 
-        <form action="" onSubmit={handleSubmit(onSubmit)}>
+        <form action="" onSubmit={handleSubmit}>
         <h1>login page</h1>
         <input type="email" 
         placeholder='Enter your email adress' 
         onChange={handlechangeMail}
-        {...register("emaile", { required: true ,message:"you must complet the mail before"})}  />
-
-        
-        {errors.emaile && (
-        <span style={{ color: 'red' }}>{errors.emaile.message}</span>
-      )}
+        />
 
         <input type="password" 
          onChange={handlechangePassword}
         placeholder="Enter your password"  
-        {...register("passworduser",{
-        minLength:{value:6,message:"Incorrect pass word"}})}/>
-      {errors.passworduser && (
-        <span style={{ color: 'red' }}>{errors.passworduser.message}</span>
-      )}
+        />
         <nav>
         <button type='submit'>Login</button>
         <button onClick={signingoogle}>Login with google</button> 
