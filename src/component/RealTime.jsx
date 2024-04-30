@@ -46,13 +46,16 @@ const handledelete=(id)=>{
      
       <div>
         {message.map(mess=>(
-         <div>
+         <div className='map_div'>
 
           <div key={mess.id} className={`message ${mess.data.userID==uid?"sent" : "receive"}`}>
+            <div>
             <img src={mess.data.user} alt="img"/>
-            <span>{mess.data.text}</span>
+            <p>{mess.data.text}</p>
             
             <button onClick={()=>handledelete(mess.id)}>delete</button>
+            </div>
+           
             </div>
           </div>
             

@@ -1,40 +1,46 @@
-section{
+.map_div{
     
- 
-   
 }
 section .all_elements{
     width: 70%;
     background-color: rgba(0, 0, 0, 0.637);
-    border:  1px solid red;
+   
     margin: 50px auto;
 }
 .message.sent {
-   border: 1px solid red;
+    margin:10px;
+    display: flex;
+    justify-content:end;
+  
 }
-.message.sent span{
+.message.sent div{
+    background-color: rgb(10, 15, 15);
+    border-radius: 20px;
+    display: flex;
+    width: fit-content;
+}
+.message.sent p{  
+   
+    
+}
+.message.receive p{
     background-color: rgb(74, 122, 122);
     border-radius: 50px;
-   padding: 10px;
+    padding: 5px; 
+   
+    
 }
 
 .message.receive{
-    background-color: blue;
-    border-radius: 50px;
-    margin: 35px;
+    display: flex;
+    justify-content:flex-start;
+   
+   
 }
-.sent img{
-
+.sent img,.receive img{
     width: 50px;
     height: 50px;
-    
-    object-fit: cover;
-    border-radius: 50%;
-}
-.receive img{
-
-    width: 70px;
-    height: 70px;
+    margin: 5px;
     object-fit: cover;
     border-radius: 50%;
 }
