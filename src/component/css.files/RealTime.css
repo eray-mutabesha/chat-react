@@ -1,13 +1,41 @@
-.sent{
-    background-color: aqua;
+section{
+    
+ 
    
 }
-.receve{
+section .all_elements{
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.637);
+    border:  1px solid red;
+    margin: 50px auto;
+}
+.message.sent {
+   border: 1px solid red;
+}
+.message.sent span{
+    background-color: rgb(74, 122, 122);
+    border-radius: 50px;
+   padding: 10px;
+}
+
+.message.receive{
     background-color: blue;
- 
+    border-radius: 50px;
+    margin: 35px;
 }
-.messageSent{
-    background-color: brown;
-    color:white;
-    margin: 10px;
+.sent img{
+
+    width: 50px;
+    height: 50px;
+    
+    object-fit: cover;
+    border-radius: 50%;
 }
+.receive img{
+
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+

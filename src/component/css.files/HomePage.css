@@ -1,6 +1,12 @@
 body{
     margin: 0;
     padding: 0;
+    background-image: url("moderate-aquamarine-dark-gradient-background_608506-1382.avif"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: rgb(233, 233, 233); 
+   
 }
 header{
     background-color:rgba(19, 19, 19, 0.808);
@@ -16,12 +22,7 @@ header div{
     display: flex;
 }
 .body{
- z-index: 0;
- background-image: url("moderate-aquamarine-dark-gradient-background_608506-1382.avif"); 
- background-repeat: no-repeat;
- background-size: cover;
- height: 100vh;
- color: rgb(233, 233, 233); 
+
 
 }
 .body .as_body{

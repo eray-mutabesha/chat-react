@@ -2,6 +2,7 @@ import React, { useEffect, useId, useState } from 'react';
 import {collection, onSnapshot ,query ,orderBy,deleteDoc,doc} from "firebase/firestore";
 import { auth, db } from '../firebase';
 import '../component/css.files/RealTime.css';
+import Addmessages from './Addmessages';
 
 
 function RealTime() {
@@ -34,20 +35,22 @@ const handledelete=(id)=>{
     console.log(error)
   })
 }
-// let {uid}=auth.currentUser;
 
+
+ let {uid}=auth.currentUser
 // .........................................
   return (
-    <div>
+    <section>
+    <div className='all_elements'>
       <h1>the real time data base</h1>
      
       <div>
         {message.map(mess=>(
          <div>
 
-          <div key={mess.id} className={`${mess.data.userID?"sent" : "receve"}`}>
+          <div key={mess.id} className={`message ${mess.data.userID==uid?"sent" : "receive"}`}>
             <img src={mess.data.user} alt="img"/>
-            {mess.data.text}
+            <span>{mess.data.text}</span>
             
             <button onClick={()=>handledelete(mess.id)}>delete</button>
             </div>
@@ -56,7 +59,10 @@ const handledelete=(id)=>{
         ))}
       </div>
       <button onClick={logout}>Log out</button>
+      <Addmessages />
+
     </div>
+    </section>
   )
 }
 

@@ -8,7 +8,6 @@ function Tchat() {
   return (
     <>
     <RealTime />
-    <Addmessages />
     </>
     
      

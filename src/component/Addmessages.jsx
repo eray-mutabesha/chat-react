@@ -28,13 +28,12 @@ const handlesubmit=(e)=>{
   }
 
   return (
-    <div>
-      <h1>add messages</h1>
+    
       <form onSubmit={handlesubmit}>
       <input type="text" id={messageSent} value={messageSent} onChange={handlesend}/>
       <button type='submit'>send message</button>
       </form>
-    </div>
+  
   )
 }
 
