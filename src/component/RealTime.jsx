@@ -42,18 +42,18 @@ const handledelete=(id)=>{
   return (
     <section>
     <div className='all_elements'>
-      <h1>the real time data base</h1>
+      <h1>Start your tchat</h1>
      
       <div>
         {message.map(mess=>(
          <div className='map_div'>
 
-          <div key={mess.id} className={`message ${mess.data.userID==uid?"sent" : "receive"}`}>
+          <div key={mess.id} className={`message ${mess.data.userID == uid?"sent" : "receive"}`}>
             <div>
             <img src={mess.data.user} alt="img"/>
             <p>{mess.data.text}</p>
             
-            <button onClick={()=>handledelete(mess.id)}>delete</button>
+            <button className='btn_delete' onClick={()=>handledelete(mess.id)}>delete</button>
             </div>
            
             </div>
@@ -61,8 +61,12 @@ const handledelete=(id)=>{
             
         ))}
       </div>
-      <button onClick={logout}>Log out</button>
+      <div className='fixed'>
+      <button onClick={logout} className='logout'>Log out</button>
       <Addmessages />
+      
+      </div>
+      
 
     </div>
     </section>

@@ -1,47 +1,75 @@
-.map_div{
-    
-}
+
 section .all_elements{
     width: 70%;
-    background-color: rgba(0, 0, 0, 0.637);
    
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 0px 0px 10px 0px rgb(128, 128, 128);
+    height: 90vh;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.664);
     margin: 50px auto;
 }
+section h1{
+    text-align: center;
+}
 .message.sent {
-    margin:10px;
+    margin:20px;
     display: flex;
     justify-content:end;
   
 }
 .message.sent div{
-    background-color: rgb(10, 15, 15);
-    border-radius: 20px;
     display: flex;
     width: fit-content;
 }
-.message.sent p{  
-   
-    
+.message.sent div p{
+    background-color: rgb(68, 92, 68);
+    padding: 15px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 25% 85%, 15% 100%, 15% 85%, 0% 85%);
 }
-.message.receive p{
-    background-color: rgb(74, 122, 122);
-    border-radius: 50px;
-    padding: 5px; 
+.message.receive {
+    margin:20px;
+    display: flex;
+    justify-content:start;
+  
+}
+.message.receive div{
+    display: flex;
+    width: fit-content;
    
-    
+}
+.message.receive div p{
+    background-color: rgb(70, 85, 85);
+    padding: 15px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 88% 85%, 90% 100%, 75% 85%, 0% 85%);
 }
 
-.message.receive{
-    display: flex;
-    justify-content:flex-start;
-   
-   
-}
 .sent img,.receive img{
     width: 50px;
     height: 50px;
-    margin: 5px;
+    margin: 10px;
     object-fit: cover;
     border-radius: 50%;
 }
-
+.fixed{
+   position: absolute;
+   display: flex;
+   top: 85vh;
+   left:35%;
+}
+.fixed button{
+    border: none;
+    background-color: rgb(68, 92, 68);
+}
+.fixed button:hover{
+    background-color: rgba(107, 172, 107, 0.712);
+    border: 1px solid white;
+    color:white;
+}
+.send_inp{
+    outline: none;
+    border: none;
+    background-color: rgb(214, 214, 214);
+    padding: 15px;
+}
