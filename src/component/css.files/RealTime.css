@@ -1,13 +1,15 @@
 
 section .all_elements{
     width: 70%;
-   
+    background-image: url("tchatemoji.jpg");
+    background-position: center;
+    background-size: cover; 
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     box-shadow: 0px 0px 10px 0px rgb(128, 128, 128);
     height: 90vh;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.664);
+    background-color: rgba(0, 0, 0, 0.726);
     margin: 50px auto;
 }
 section h1{
@@ -24,7 +26,7 @@ section h1{
     width: fit-content;
 }
 .message.sent div p{
-    background-color: rgb(68, 92, 68);
+    background-color: rgb(109, 108, 108);
     padding: 15px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 25% 85%, 15% 100%, 15% 85%, 0% 85%);
 }
@@ -40,7 +42,7 @@ section h1{
    
 }
 .message.receive div p{
-    background-color: rgb(70, 85, 85);
+    background-color: rgba(107, 172, 107, 0.712);
     padding: 15px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 88% 85%, 90% 100%, 75% 85%, 0% 85%);
 }
@@ -60,10 +62,11 @@ section h1{
 }
 .fixed button{
     border: none;
-    background-color: rgb(68, 92, 68);
+    background-color: rgba(107, 172, 107, 0.712);
+    
 }
 .fixed button:hover{
-    background-color: rgba(107, 172, 107, 0.712);
+    background-color: rgb(68, 92, 68);
     border: 1px solid white;
     color:white;
 }
