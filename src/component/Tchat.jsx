@@ -9,9 +9,6 @@ function Tchat() {
     <>
     <RealTime />
     </>
-    
-     
-    
   )
 }
 
