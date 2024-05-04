@@ -4,7 +4,6 @@ section .all_elements{
     background-image: url("thevie.jpg");
     background-position: center;
     backface-visibility: initial;
-     /* background-size: cover;   */
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     box-shadow: 0px 0px 10px 0px rgb(128, 128, 128);
