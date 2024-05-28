@@ -38,7 +38,8 @@ const handledelete=(id)=>{
 
 
  let user=auth.currentUser;
- let uid=user;
+ let {uid}= !isEmpty(user)&&user;
+
 // ...........................................................................................................
   return (
     <section>
@@ -49,7 +50,7 @@ const handledelete=(id)=>{
         {message.map(mess=>(
 
          <div className='map_div'>
-          <div key={mess.id} className={`message ${mess.data.userID == !isEmpty(uid)&&uid?"sent" : "receive"}`}>
+          <div key={mess.id} className={`message ${mess.data.userID == uid?"sent" : "receive"}`}>
             <div>
               <img src={mess.data.user} alt="img"/>
               <p>{mess.data.text}</p>
