@@ -3,7 +3,7 @@ import {collection, onSnapshot ,query ,orderBy,deleteDoc,doc} from "firebase/fir
 import { auth, db } from '../firebase';
 import '../component/css.files/RealTime.css';
 import Addmessages from './Addmessages';
-
+import { isEmpty } from '../../utils';
 
 function RealTime() {
 // get datas from firebase.......................
@@ -37,8 +37,9 @@ const handledelete=(id)=>{
 }
 
 
- let {uid}=auth.currentUser
-// .........................................
+ let user=auth.currentUser;
+ let uid=user;
+// ...........................................................................................................
   return (
     <section>
     <div className='all_elements'>
@@ -46,18 +47,17 @@ const handledelete=(id)=>{
      
       <div>
         {message.map(mess=>(
-         <div className='map_div'>
 
-          <div key={mess.id} className={`message ${mess.data.userID == uid?"sent" : "receive"}`}>
+         <div className='map_div'>
+          <div key={mess.id} className={`message ${mess.data.userID == !isEmpty(uid)&&uid?"sent" : "receive"}`}>
             <div>
-            <img src={mess.data.user} alt="img"/>
-            <p>{mess.data.text}</p>
-            
-            <button className='btn_delete' onClick={()=>handledelete(mess.id)}>delete</button>
+              <img src={mess.data.user} alt="img"/>
+              <p>{mess.data.text}</p>
+              <button className='btn_delete' onClick={()=>handledelete(mess.id)}>delete</button>
             </div>
-           
             </div>
           </div>
+
         ))}
       </div>
       <div className='fixed'>
