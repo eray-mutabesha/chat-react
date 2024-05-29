@@ -25,11 +25,6 @@ function SignIn() {
           <option value="">Fr</option>
          </select>
           </div>
-          <div>
-          
-        <button>sign in with google</button> 
-        <button>Signin with Email</button>
-          </div>
 
         </header>
           <div className='flex_div'>
