@@ -1,16 +1,11 @@
 
 section .all_elements{
-    width: 70%;
+    width: 100%;
     background-image: url("thevie.jpg");
     background-position: center;
     backface-visibility: initial;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    box-shadow: 0px 0px 10px 0px rgb(128, 128, 128);
-    height: 90vh;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.726);
-    margin: 50px auto;
+    height: 100vh;
 }
 section h1{
     text-align: center;

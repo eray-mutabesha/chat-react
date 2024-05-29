@@ -71,3 +71,18 @@
 .links p{
     color: white;
 }
+/* *******************************media queries******************************** */
+@media (max-width:590px){
+    .text_div{
+        display: none; 
+    }
+    .login_div{
+        width:100%;
+    }
+    .login_div form input{
+        width: 80%;
+    }
+    .login_div form nav{
+        width: 85%;
+    }
+}
