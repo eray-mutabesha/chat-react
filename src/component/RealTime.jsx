@@ -64,7 +64,6 @@ const handledelete=(id)=>{
       <div className='fixed'>
       <button onClick={logout}className='logout'>Log out</button>
       <Addmessages />
-      
       </div>
       
 

@@ -53,7 +53,8 @@ section h1{
    position: absolute;
    display: flex;
    top: 85vh;
-   left:35%;
+   justify-content: center;
+   width: 100%;
 }
 .fixed button{
     border: none;
