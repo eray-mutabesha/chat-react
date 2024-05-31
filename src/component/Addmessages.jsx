@@ -31,7 +31,7 @@ const handlesubmit=(e)=>{
     
       <form onSubmit={handlesubmit}>
       <input className='send_inp' type="text" id={messageSent} value={messageSent} onChange={handlesend}/>
-      <button type='submit'>send message</button>
+      <button type='submit'>send</button>
       </form>
   
   )

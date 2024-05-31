@@ -6,18 +6,26 @@ import { Link } from 'react-router-dom';
 import '../component/css.files/LoginPage.css';
 import toast from 'react-hot-toast';
 import { useForm} from "react-hook-form"
+import { useEffect } from 'react';
+
+
 
 function SigninPage() {
   const navigate=useNavigate();
   const { handleSubmit,register,formState: { errors }} = useForm()
 
-  
+  useEffect(()=>{
+    if(localStorage.getItem("auth")){
+       navigate("/tchat");
+      }
+    })
   const onSubmit =async(data)=>{
     try{
       const email=data.email
       const password=data.passworduser
       console.log(email)
       await createUserWithEmailAndPassword(auth,email,password).then(data=>{
+        localStorage.setItem('email',JSON.stringify(data.user.email))
         navigate('/tchat');
         console.log(data,"authData");
       toast.success("Account successful created")

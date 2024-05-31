@@ -19,12 +19,18 @@ function Login() {
      const handlechangePassword=(e)=>{
       setPassword(e.target.value);
      }
+     useEffect(()=>{
+      if(localStorage.getItem("auth")){
+         navigate("/tchat");
+        }
+      })
   
     const handleSubmit= async (e)=>{
         e.preventDefault();
      
         try{
           await signInWithEmailAndPassword(auth,email,password).then(data=>{
+            localStorage.setItem('email',JSON.stringify(data.user.email))
             toast.success("successful connexion")
             navigate('/tchat');
             console.log(data,"authData");

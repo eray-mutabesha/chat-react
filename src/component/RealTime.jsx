@@ -4,10 +4,13 @@ import { auth, db } from '../firebase';
 import '../component/css.files/RealTime.css';
 import Addmessages from './Addmessages';
 import { isEmpty } from '../../utils';
+import { useNavigate } from 'react-router-dom';
+
 
 function RealTime() {
 // get datas from firebase.......................
   const mesRef=collection(db,"messages");
+  const navigate= useNavigate();
   const [message,setMessage]=useState([]);
 
 
@@ -21,9 +24,14 @@ return ()=>{
 }},[])
 // .............................................
 // log out......................................
+useEffect(()=>{
+  if(!localStorage.getItem("auth")){
+     navigate("/login");
+    }
+  })
 const logout=()=>{
   localStorage.clear();
-  window.location.reload();
+ 
 }
 // ...............................................
 // delete message ...................
@@ -66,7 +74,6 @@ const handledelete=(id)=>{
       <Addmessages />
       </div>
       
-
     </div>
     </section>
   )
